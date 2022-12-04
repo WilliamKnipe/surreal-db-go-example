@@ -29,7 +29,7 @@ go test
 go run ./cmd
 ```
 
-# Commands
+# Server Endpoints
 
 Example server just has three handlers:
  - health-check
