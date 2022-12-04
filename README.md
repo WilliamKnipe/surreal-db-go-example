@@ -17,8 +17,7 @@ make start-db
 To run the Go server, run the following:
 
 ```bash
-go build
-go run ./cmd
+make start-server
 ```
 
 
