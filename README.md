@@ -17,8 +17,7 @@ make start-db
 To run the Go server, run the following:
 
 ```bash
-go build
-go run ./cmd
+make start-server
 ```
 
 
@@ -30,7 +29,7 @@ go test
 go run ./cmd
 ```
 
-# Commands
+# Server Endpoints
 
 Example server just has three handlers:
  - health-check
