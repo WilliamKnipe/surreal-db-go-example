@@ -5,9 +5,9 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/gorilla/mux"
+	"github.com/go-chi/chi/v5"
 	"github.com/surrealdb/surrealdb.go"
-	"github.com/williamknipe/testing-go-library/handlers"
+	"github.com/williamknipe/surreal-db-go-example/handlers"
 )
 
 func main() {
@@ -19,7 +19,7 @@ func main() {
 
 	fmt.Println("Starting server")
 	// Create a new router
-	router := mux.NewRouter()
+	r := chi.NewRouter()
 
 	// Handlers import from handlers package
 	HealthCheck := handlers.HealthCheck
@@ -27,14 +27,13 @@ func main() {
 	GetCafes := handlers.GetCafes
 
 	// Specify endpoints, handler functions and HTTP method
-	router.HandleFunc("/health-check", HealthCheck).Methods("GET")
-	router.HandleFunc("/cafes", AddCafes(db)).Methods("POST")
-	router.HandleFunc("/cafes", GetCafes(db)).Methods("GET")
-	http.Handle("/", router)
+	r.Get("/health-check", HealthCheck)
+	r.Get("/cafes", GetCafes(db))
+	r.Post("/cafes", AddCafes(db))
 
 	// Start server
 	fmt.Println("listening on port 8080")
-	http.ListenAndServe(":8080", router)
+	http.ListenAndServe(":8080", r)
 }
 
 type Cafe struct {
