@@ -33,8 +33,8 @@ go run ./cmd
 
 Example server just has three handlers:
  - health-check
- - cafes (post)
- - cafes (get)
+ - cafes (Post)
+ - cafes (Get)
 
 Work in progress!
 
