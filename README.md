@@ -4,7 +4,9 @@ Testing the surrealdb Go library.
 
 ### Requirements
 
-Install surrealdb.
+Install surrealdb. See docs:
+
+https://surrealdb.com/docs/installation/
 
 ### How to run
 
